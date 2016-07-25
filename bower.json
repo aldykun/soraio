@@ -1,0 +1,26 @@
+{
+  "name": "soraio",
+  "description": "An app for Fansubs Management System",
+  "main": "./bin/www",
+  "authors": [
+    "lowsprofile <zdumb1885@outlook.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "fansubs",
+    "blog",
+    "soraio",
+    "node",
+    "express",
+    "irc"
+  ],
+  "homepage": "https://sorairo.fansubs.pw",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
