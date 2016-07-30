@@ -4,8 +4,8 @@
   "description": "An app for Fansubs Management System",
   "main": "./bin/www",
   "scripts": {
-    "start": "node ./bin/www",
-    "postinstall": "bower install && knex migrate:latest && knex seed:run"
+    "start": "NODE_ENV=development node ./bin/www",
+    "postinstall": "bower install && knex migrate:latest --env development && knex seed:run --env development"
   },
   "keywords": [
     "fansubs",
