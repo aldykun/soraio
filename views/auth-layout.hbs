@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+	<title>
+		{{#if title}}
+			{{title}} | Sora Iro Fansubs
+		{{else}}
+			Sora Iro Fansubs
+		{{/if}}
+	</title>
+
+	<!-- css -->
+	<link href="/bower_components/daemonite-material/css/base.min.css" rel="stylesheet">
+	<link href="/bower_components/daemonite-material/css/project.min.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
+
+	<!-- favicon -->
+	<!-- ... -->
+</head>
+<body class="page-brand">
+  {{{body}}}
+	<footer class="ui-footer">
+		<div class="container">
+			<p>&copy; <a href="/">Sora Iro Fansubs</a>, 2012 - 2016<br/>All rights reserved</p>
+		</div>
+	</footer>
+
+	{{#if message}}
+	<div class="modal fade" id="ui_modal_msg_default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-heading">
+					<a class="modal-close" data-dismiss="modal">×</a>
+					<h2 class="modal-title">Notification Box</h2>
+				</div>
+				<div class="modal-inner">
+					{{message}}
+				</div>
+				<div class="modal-footer">
+					<p class="text-right"><button class="btn btn-flat btn-brand waves-attach waves-effect" data-dismiss="modal" type="button">Close</button></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+	<!-- js -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="/bower_components/daemonite-material/js/base.min.js"></script>
+	<script src="/bower_components/daemonite-material/js/project.min.js"></script>
+	<script src="/js/auth.js"></script>
+	<script>
+		$(window).load(function() {
+				$('#ui_modal_msg_default').modal('show');
+		});
+	</script>
+</body>
+</html>
