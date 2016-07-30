@@ -6,9 +6,9 @@
 	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
 	<title>
 		{{#if title}}
-			{{title}} | Sora Iro Fansubs
+			{{title}} | {{site.title}}
 		{{else}}
-			Sora Iro Fansubs
+			{{site.title}}
 		{{/if}}
 	</title>
 
@@ -29,8 +29,8 @@
 				</a>
 			</li>
 		</ul>
-		<a class="header-logo header-affix-hide margin-left-no margin-right-no" data-offset-top="213" data-spy="affix" href="/">{{title}}</a>
-		<span class="header-logo header-affix margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">{{title}}</span>
+		<a class="header-logo header-affix-hide margin-left-no margin-right-no" data-offset-top="213" data-spy="affix" href="/">{{site.title}}</a>
+		<span class="header-logo header-affix margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">{{site.title}}</span>
 		<ul class="nav nav-list pull-right">
 			<li class="dropdown margin-right">
 				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
@@ -67,7 +67,7 @@
 	<nav aria-hidden="true" class="menu" id="ui_menu" tabindex="-1">
 		<div class="menu-scroll">
 			<div class="menu-content">
-				<a class="menu-logo" href="/">{{title}}</a>
+				<a class="menu-logo" href="/">{{site.title}}</a>
 				<ul class="nav">
 					<li>
 						<a class="waves-attach" data-toggle="collapse" href="#ui_sora_about">About</a>

@@ -4,6 +4,7 @@ var passport = require('passport');
 // Profile
 router.get('/', isLoggedIn, function(req, res) {
   res.render('users', {
+    site: conf,
     user : req.user // get the user out of session and pass to template
   });
 });
