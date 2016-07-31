@@ -6,7 +6,7 @@ var conf = require('../lib/conf');
 // show the login form
 router.get('/login', function(req, res, next) {
   // render the page and pass in any flash data if it exists
-  res.render('login', { title: 'Log In', message: req.flash('loginMessage'), layout: 'auth-layout', site: conf});
+  res.render('login', { title: 'Log In', message: req.flash('loginMessage'), layout: 'auth-layout', site: conf, csrfToken: req.csrfToken()});
 });
 
 // process the login form
@@ -36,7 +36,7 @@ router.get('/logout', function(req, res) {
 // show the signup form
 router.get('/signup', function(req, res) {
   // render the page and pass in any flash data if it exists
-  res.render('signup', { title: 'Sign Up', message: req.flash('signupMessage'), layout: 'auth-layout', site: conf });
+  res.render('signup', { title: 'Sign Up', message: req.flash('signupMessage'), layout: 'auth-layout', site: conf, csrfToken: req.csrfToken() });
 });
 
 // process the signup form

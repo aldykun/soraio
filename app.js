@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session  = require('express-session');
+var csrf = require('csurf');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -50,6 +51,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 app.use('/', routes);
 app.use('/users', users);
+app.use(csrf({ cookie: true }));
 app.use('/backend', backend);
 app.use('/auth', auth);
 
@@ -61,14 +63,21 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
+app.use(function (err, req, res, next) {
+  if (err.code !== 'EBADCSRFTOKEN') return next(err);
 
+  // handle CSRF token errors here
+  err.status = 403;
+  next(err);
+});
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
-      message: err.message,
+      errstat: err.status,
+      errmsg: err.message,
       error: err
     });
   });
@@ -79,7 +88,8 @@ if (app.get('env') === 'development') {
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
-    message: err.message,
+    errstat: err.status,
+    errmsg: err.message,
     error: {}
   });
 });
