@@ -15,13 +15,29 @@ var auth = require('./routes/auth');
 var passport = require('passport');
 var flash    = require('connect-flash');
 var pass = require('./lib/passport');
+var hbs = require('hbs');
 
 var app = express();
-
+var blocks = {};
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerHelper('extend', function(name, context) {
+    var block = blocks[name];
+    if (!block) {
+        block = blocks[name] = [];
+    }
 
+    block.push(context.fn(this)); // for older versions of handlebars, use block.push(context(this));
+});
+hbs.registerHelper('block', function(name) {
+    var val = (blocks[name] || []).join('\n');
+
+    // clear the block
+    blocks[name] = [];
+    return val;
+});
+hbs.registerPartials(path.join(__dirname, '/views/partials'));
 pass(passport);
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

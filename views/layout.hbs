@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+	{{> meta}}
 	<title>
 		{{#if title}}
 			{{title}} | {{site.title}}
@@ -13,185 +11,24 @@
 	</title>
 
 	<!-- css -->
-	<link href="/bower_components/daemonite-material/css/base.min.css" rel="stylesheet">
-	<link href="/bower_components/daemonite-material/css/project.min.css" rel="stylesheet">
-	<link href="/css/style.css" rel="stylesheet">
-
+	{{> style}}
+	<!-- Custom css -->
+	{{{block "customcss"}}}
 	<!-- favicon -->
 	<!-- ... -->
 </head>
 <body class="page-brand">
-	<header class="header header-transparent header-color-black header-waterfall ui-header">
-		<ul class="nav nav-list pull-left">
-			<li>
-				<a data-toggle="menu" href="#ui_menu">
-					<span class="icon icon-lg">menu</span>
-				</a>
-			</li>
-		</ul>
-		<a class="header-logo header-affix-hide margin-left-no margin-right-no" data-offset-top="213" data-spy="affix" href="/">{{site.title}}</a>
-		<span class="header-logo header-affix margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">{{site.title}}</span>
-		<ul class="nav nav-list pull-right">
-			<li class="dropdown margin-right">
-				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
-					{{#if user}}
-						<span class="access-hide">{{user.firstName}} {{user.lastName}}</span>
-						<span class="avatar avatar-sm"><img avatar="{{user.firstName}} {{user.lastName}}"></span>
-					{{else}}
-						<span class="avatar avatar-sm"><img alt="Guest" src="/bower_components/daemonite-material/images/users/avatar-001.jpg"></span>
-					{{/if}}
-				</a>
-				<ul class="dropdown-menu dropdown-menu-right">
-						{{#if user}}
-							<li>
-								<a class="padding-right-lg waves-attach" href="javascript:void(0)"><span class="icon icon-lg margin-right">verified_user</span><span>Hi, <strong>{{user.firstName}} {{user.lastName}}</strong></span></a>
-							</li>
-							<li>
-								<a class="padding-right-lg waves-attach" href="javascript:void(0)"><span class="icon icon-lg margin-right">add_to_photos</span>Upload Photo</a>
-							</li>
-							<li>
-								<a class="padding-right-lg waves-attach" href="/auth/logout"><span class="icon icon-lg margin-right">exit_to_app</span>Logout</a>
-							</li>
-						{{else}}
-							<li>
-								<a class="padding-right-lg waves-attach" href="/auth/signup"><span class="icon icon-lg margin-right">perm_identity</span>Create an Account</a>
-							</li>
-							<li>
-								<a class="padding-right-lg waves-attach" href="/auth/login"><span class="icon icon-lg margin-right">exit_to_app</span>Sign In</a>
-							</li>
-						{{/if}}
-				</ul>
-			</li>
-		</ul>
-	</header>
-	<nav aria-hidden="true" class="menu" id="ui_menu" tabindex="-1">
-		<div class="menu-scroll">
-			<div class="menu-content">
-				<a class="menu-logo" href="/">{{site.title}}</a>
-				<ul class="nav">
-					<li>
-						<a class="waves-attach" data-toggle="collapse" href="#ui_sora_about">About</a>
-						<ul class="menu-collapse collapse" id="ui_sora_about">
-							<li>
-								<a class="waves-attach" href="/">Staff</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="/">Ikki<small class="margin-left-xs">(9 November 2014)</small></a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a class="waves-attach" href="/">Donation</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="/">Projects</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="/">Recruitment</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="/">DDL</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="/">Torrent</a>
-					</li>
-					<li>
-						<a class="waves-attach" data-toggle="collapse" href="#ui_sora_portal">Playback &amp; Portals</a>
-						<ul class="menu-collapse collapse" id="ui_sora_portal">
-							<li>
-								<a class="waves-attach" href="/">Playback</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="/">Portal</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="/">Web IRC</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="/">Sorairo Server Tools</a>
-							</li>
-							<hr/>
-							<li>
-								<a class="waves-attach" href="/">Horizon Sora Iro</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="/">ghosted</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="/" title="鹿乃">鹿乃.gq</a>
-							</li>
-						</ul>
-					</li>
-        </ul>
-			</div>
-		</div>
-	</nav>
-	<main class="content">
-		<div class="content-header ui-content-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 col-xs-12">
-						<h1 class="content-heading">{{site.title}}</h1>
-						<h4 class="content-heading">{{site.irc}}</h4>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 col-xs-12">
-					<section class="content-inner margin-top-no">
-						<div class="card">
-							<div class="card-main">
-								<div class="card-inner margin-bottom-no">
-									{{{body}}}
-								</div>
-								<div class="card-action">
-									<div class="card-action-btn pull-right">
-										<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">chevron_left</span></a>
-										<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">chevron_right</span></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>
-				</div>
-			</div>
-		</div>
-	</main>
-	<footer class="ui-footer">
-		<div class="container">
-			<p>&copy; <a href="/">{{site.title}}</a>, 2012 - 2016<br/>All rights reserved</p>
-		</div>
-	</footer>
+	{{> header}}
+	{{> menu}}
+	{{> content}}
+	{{> footer}}
 
 	{{#if message}}
-	<div class="modal fade" id="ui_modal_msg_default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-heading">
-					<a class="modal-close" data-dismiss="modal">×</a>
-					<h2 class="modal-title">Notification Box</h2>
-				</div>
-				<div class="modal-inner">
-					{{message}}
-				</div>
-				<div class="modal-footer">
-					<p class="text-right"><button class="btn btn-flat btn-brand waves-attach waves-effect" data-dismiss="modal" type="button">Close</button></p>
-				</div>
-			</div>
-		</div>
-	</div>
+		{{> notif}}
 	{{/if}}
 	<!-- js -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-	<script src="/bower_components/daemonite-material/js/base.min.js"></script>
-	<script src="/bower_components/daemonite-material/js/project.min.js"></script>
-	<script src="/js/letterAvatar.js"></script>
-	<script>
-		$(window).load(function() {
-				$('#ui_modal_msg_default').modal('show');
-		});
-	</script>
+	{{> script}}
+	<!-- Custom js -->
+	{{{block "customjs"}}}
 </body>
 </html>
