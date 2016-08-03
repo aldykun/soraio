@@ -20,7 +20,7 @@ var hbs = require('hbs');
 var app = express();
 var blocks = {};
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, 'app')]);
 app.set('view engine', 'hbs');
 hbs.registerHelper('extend', function(name, context) {
     var block = blocks[name];
@@ -54,6 +54,7 @@ app.use(require('node-sass-middleware')({
 app.use(express.static(path.join(__dirname, 'public')));
 //call bower_components to public
 app.use('/bower_components',  express.static(path.join(__dirname, 'bower_components')));
+app.use('/assets',  express.static(path.join(__dirname, './public/clearmin/src')));
 
 //passport setup
 app.use(session({
