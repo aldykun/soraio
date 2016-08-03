@@ -1,3 +1,3 @@
 [submodule "public/clearmin"]
 	path = public/clearmin
-	url = git@github.com:paomedia/clearmin.git
+	url = git://github.com:paomedia/clearmin.git
