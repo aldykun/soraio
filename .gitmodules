@@ -1,3 +1,6 @@
 [submodule "public/clearmin"]
 	path = public/clearmin
 	url = git://github.com/paomedia/clearmin.git
+[submodule "public/ghostditor"]
+	path = public/ghostditor
+	url = https://github.com/durgesh-priyaranjan/ghosditor.git
