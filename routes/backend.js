@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 /* GET posts index. */
 router.get('/posts', function(req, res, next) {
-  res.send('respond for index of pages');
+  res.render('index-posts', {layout: 'dashboard', title: 'Posts', message: req.flash('loginMessage'), site: conf, csrfToken: req.csrfToken()});
 });
 
 /* GET pages index. */

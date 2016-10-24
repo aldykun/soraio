@@ -29,6 +29,7 @@
     "hbs": "^4.0.0",
     "knex": "^0.11.9",
     "morgan": "~1.7.0",
+    "multer": "^1.2.0",
     "mysql": "^2.11.1",
     "node-sass-middleware": "0.8.0",
     "passport": "^0.3.2",
