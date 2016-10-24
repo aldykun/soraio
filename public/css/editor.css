@@ -107,7 +107,7 @@ code, tt, pre {
   color: #170; }
 
 .cm-s-default .cm-attribute {
-  color: #00c; }
+  color: #8BC34A; }
 
 .cm-s-default .cm-header {
   color: blue; }
@@ -197,12 +197,12 @@ code, tt, pre {
   border-radius: 0;
   border-width: 0;
   background: transparent;
-  font-family: inherit;
-  font-size: inherit;
+  font-family: Roboto,Arial,sans-serif;
+  font-size: 1em;
   margin: 0;
   white-space: pre;
   word-wrap: normal;
-  line-height: inherit;
+  line-height: 1.4em;
   color: inherit;
   z-index: 2;
   position: relative;
@@ -275,8 +275,8 @@ code, tt, pre {
   color: #3c4043; }
 
 .entry-markdown-content .cm-string, .entry-markdown-content .cm-strong, .entry-markdown-content .cm-link, .entry-markdown-content .cm-comment, .entry-markdown-content .cm-quote, .entry-markdown-content .cm-number, .entry-markdown-content .cm-atom, .entry-markdown-content .cm-tag {
-  color: #000;
-  font-weight: bold; }
+  color: #8BC34A;
+  font-weight: 400; }
 
 /*Floating header style */
 .floatingheader {
@@ -318,7 +318,8 @@ code, tt, pre {
   .CodeMirror .cm-header-1 {
     font-size: 40px;
     line-height: 1.35;
-    margin: 18px 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
     display: inline-block; }
   .CodeMirror .cm-header-2 {
     font-size: 30px;
