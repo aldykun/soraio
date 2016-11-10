@@ -112,9 +112,11 @@ require([
         syncScroll();
         updateWordCount();
     });
+    $('.btn.btn-midnight').on('click focus', function(){
+      $('#entry-markdown').html(editor.getValue());
+    });
 
     updatePreview();
     updateWordCount();
-
     document.querySelector('.CodeMirror-scroll').onscroll = syncScroll;
 });
